@@ -91,5 +91,36 @@ namespace EquazioniLibrary.Test
             bool risultato_effettivo = Equazioni.IsDegree2(a);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
         }
+
+        [TestMethod]
+        public void CalcoloDelta1()
+        {
+            double a = 2;
+            double b = 0;
+            double c = 3;
+            double risultato_aspettato = -24;
+            double risultato_effettivo = Equazioni.Delta(a, b, c);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void CalcoloDelta2()
+        {
+            double a = 4;
+            double b = 1;
+            double c = -7;
+            double risultato_aspettato = 113;
+            double risultato_effettivo = Equazioni.Delta(a, b, c);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void CalcoloDelta3()
+        {
+            double a = 1;
+            double b = 2;
+            double c = 1;
+            double risultato_aspettato = 0;
+            double risultato_effettivo = Equazioni.Delta(a, b, c);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
     }
 }
