@@ -67,5 +67,29 @@ namespace EquazioniLibrary.Test
             bool risultato_effettivo = Equazioni.IsIncosisted(a, b);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
         }
+        [TestMethod]
+        public void EquazioneSecondoGrado1()
+        {
+            double a = 6;
+            bool risultato_aspettato = true;
+            bool risultato_effettivo = Equazioni.IsDegree2(a);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void EquazioneSecondoGrado2()
+        {
+            double a = 0;
+            bool risultato_aspettato = false;
+            bool risultato_effettivo = Equazioni.IsDegree2(a);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void EquazioneSecondoGrado3()
+        {
+            double a = -2;
+            bool risultato_aspettato = true;
+            bool risultato_effettivo = Equazioni.IsDegree2(a);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
     }
 }
