@@ -39,5 +39,33 @@ namespace EquazioniLibrary
             double delta = (b * b) - (4 * a * c);
             return delta;
         }
+
+        public static string EquazioneSecondoGrado(double a, double b, double c)
+        {
+            double delta = (b * b) - (4 * a * c);
+            double x1, x2;
+            if(delta == 0)
+            {
+                x1 = -b / (2 * a);
+                return $"L'equazione ha una sola soluzione: {x1}";
+            }
+            else if(delta < 0)
+            {
+                return "L'equazione è impossibile";
+            }
+            else
+            {
+                double soluzione_temporanea;
+                x1 = (-b -(Math.Sqrt(delta))) / (2 * a);
+                x2 = (-b +(Math.Sqrt(delta))) / (2 * a);
+                if(x1 > x2)
+                {
+                    soluzione_temporanea = x2;
+                    x2 = x1;
+                    x1 = soluzione_temporanea;
+                }
+                return $"L'equazione ha una due soluzioni {x1} e {x2}";
+            }
+        }
     }
 }

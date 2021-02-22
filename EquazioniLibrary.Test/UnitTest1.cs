@@ -105,10 +105,10 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void CalcoloDelta2()
         {
-            double a = 4;
+            double a = 2;
             double b = 1;
-            double c = -7;
-            double risultato_aspettato = 113;
+            double c = -3;
+            double risultato_aspettato = 25;
             double risultato_effettivo = Equazioni.Delta(a, b, c);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
         }
@@ -120,6 +120,37 @@ namespace EquazioniLibrary.Test
             double c = 1;
             double risultato_aspettato = 0;
             double risultato_effettivo = Equazioni.Delta(a, b, c);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+
+        [TestMethod]
+        public void CalcoloSoluzione1()
+        {
+            double a = 1;
+            double b = 2;
+            double c = 1;
+            string risultato_aspettato = "L'equazione ha una sola soluzione: -1";
+            string risultato_effettivo = Equazioni.EquazioneSecondoGrado(a, b, c);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void CalcoloSoluzione2()
+        {
+            double a = 2;
+            double b = 0;
+            double c = 3;
+            string risultato_aspettato = "L'equazione è impossibile";
+            string risultato_effettivo = Equazioni.EquazioneSecondoGrado(a, b, c);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void CalcoloSoluzione3()
+        {
+            double a = 2;
+            double b = 1;
+            double c = -3;
+            string risultato_aspettato = $"L'equazione ha una due soluzioni {-1.5} e {1}";
+            string risultato_effettivo = Equazioni.EquazioneSecondoGrado(a, b, c);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
         }
     }
