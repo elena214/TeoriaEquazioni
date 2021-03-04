@@ -175,8 +175,8 @@ namespace EquazioniLibrary.Test
         [TestMethod]
         public void SoluzionePrimoGrado3()
         {
-            double a = -2;
-            double b = 0;
+            double a = 0;
+            double b = -2;
             string risultato_aspettato = "L'equazione di primo grado è impossibile";
             string risultato_effettivo = Equazioni.EquationDegree1(a, b);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
