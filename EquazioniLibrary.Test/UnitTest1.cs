@@ -159,7 +159,7 @@ namespace EquazioniLibrary.Test
         {
             double a = 2;
             double b = 1;
-            string risultato_aspettato = $"L'equazione è determinata e la soluzione della x è {0.5}";
+            string risultato_aspettato = $"L'equazione è determinata e la soluzione della x è {-0.5}";
             string risultato_effettivo = Equazioni.EquationDegree1(a, b);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
         }

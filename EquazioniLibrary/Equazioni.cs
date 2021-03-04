@@ -42,8 +42,8 @@ namespace EquazioniLibrary
 
         public static string EquazioneSecondoGrado(double a, double b, double c)
         {
-            double delta = (b * b) - (4 * a * c);
-            double x1, x2;
+            double delta = Equazioni.Delta(a, b, c);
+            double x1 = 0, x2 = 0;
             if(delta == 0)
             {
                 x1 = -b / (2 * a);
@@ -55,17 +55,15 @@ namespace EquazioniLibrary
             }
             else
             {
-                double soluzione_temporanea;
-                x1 = (-b -(Math.Sqrt(delta))) / (2 * a);
-                x2 = (-b +(Math.Sqrt(delta))) / (2 * a);
-                if(x1 > x2)
-                {
-                    soluzione_temporanea = x2;
-                    x2 = x1;
-                    x1 = soluzione_temporanea;
-                }
+                Equazioni.CalcoloSoluzioni(a, b, ref x1, ref x2, delta);
+                Equazioni.CambioVariabili(ref x1, ref x2);
                 return $"L'equazione ha una due soluzioni {x1} e {x2}";
             }
+        }
+        public static void CalcoloSoluzioni(double a, double b, ref double x1, ref double x2, double delta)
+        {
+            x1 = (-b - (Math.Sqrt(delta))) / (2 * a);
+            x2 = (-b + (Math.Sqrt(delta))) / (2 * a);
         }
         public static string EquationDegree1(double a, double b)
         {
@@ -73,15 +71,25 @@ namespace EquazioniLibrary
             {
                 return "L'equazione di primo grado è indeterminata";
             }
-            else if(a != 0 && b == 0)
+            else if(a == 0 && b != 0)
             {
                 return "L'equazione di primo grado è impossibile";
             }
             else
             {
                 double soluzione;
-                soluzione = b / a;
+                soluzione = -b / a;
                 return $"L'equazione è determinata e la soluzione della x è {soluzione}";
+            }
+        }
+        public static void CambioVariabili(ref double x1, ref double x2)
+        {
+            double soluzione_temporanea;
+            if(x1 > x2)
+            {
+                soluzione_temporanea = x1;
+                x1 = x2;
+                x2 = soluzione_temporanea;
             }
         }
     }
