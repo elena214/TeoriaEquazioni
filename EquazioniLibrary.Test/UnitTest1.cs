@@ -153,5 +153,33 @@ namespace EquazioniLibrary.Test
             string risultato_effettivo = Equazioni.EquazioneSecondoGrado(a, b, c);
             Assert.AreEqual(risultato_effettivo, risultato_aspettato);
         }
+
+        [TestMethod]
+        public void SoluzionePrimoGrado1()
+        {
+            double a = 2;
+            double b = 1;
+            string risultato_aspettato = $"L'equazione è determinata e la soluzione della x è {0.5}";
+            string risultato_effettivo = Equazioni.EquationDegree1(a, b);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void SoluzionePrimoGrado2()
+        {
+            double a = 0;
+            double b = 0;
+            string risultato_aspettato = "L'equazione di primo grado è indeterminata";
+            string risultato_effettivo = Equazioni.EquationDegree1(a, b);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
+        [TestMethod]
+        public void SoluzionePrimoGrado3()
+        {
+            double a = -2;
+            double b = 0;
+            string risultato_aspettato = "L'equazione di primo grado è impossibile";
+            string risultato_effettivo = Equazioni.EquationDegree1(a, b);
+            Assert.AreEqual(risultato_effettivo, risultato_aspettato);
+        }
     }
 }

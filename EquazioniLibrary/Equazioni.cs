@@ -67,5 +67,22 @@ namespace EquazioniLibrary
                 return $"L'equazione ha una due soluzioni {x1} e {x2}";
             }
         }
+        public static string EquationDegree1(double a, double b)
+        {
+            if(a == 0 && b == 0)
+            {
+                return "L'equazione di primo grado è indeterminata";
+            }
+            else if(a != 0 && b == 0)
+            {
+                return "L'equazione di primo grado è impossibile";
+            }
+            else
+            {
+                double soluzione;
+                soluzione = b / a;
+                return $"L'equazione è determinata e la soluzione della x è {soluzione}";
+            }
+        }
     }
 }
